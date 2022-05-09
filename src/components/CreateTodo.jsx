@@ -11,7 +11,7 @@ const CreateTodo = (props) => {
         <div className="form-text">Weniger als 160 Zeichen</div>
       </div>
       <div className="mb-3">
-        <label className="form-label">Zu erledigen bis</label>
+        <label className="form-label">Deadline</label>
         <input type="date" className="form-control" />
       </div>
       <div className="mb-3">

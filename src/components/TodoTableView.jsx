@@ -4,11 +4,11 @@ import EditTodo from "./EditTodo";
 import Impressum from "./Impressum";
 import "./TodoTableView.css";
 
-const head = ["Index", "Titel", "Deadline", "Fortschritt"];
+const head = ["Index", "Titel", "Deadline", "Fortschritt", "Löschen"];
 const body = [
-  { title: "A", deadline: "13.10.2022", progress: "100%" },
-  { title: "B", deadline: "16.01.2025", progress: "50%" },
-  { title: "C", deadline: "01.11.2028", progress: "27%" },
+  { title: "Einkaufen", deadline: "13.10.2022", progress: "100%", checkbox: <input class="form-check-input" id="flexChec2" type="checkbox"/> },
+  { title: "SkSys HA", deadline: "16.01.2025", progress: "50%", checkbox: <input class="form-check-input" id="flexChec2" type="checkbox"/>  },
+  { title: "Zähne putzen", deadline: "01.11.2028", progress: "27%", checkbox: <input class="form-check-input" id="flexChec2" type="checkbox"/>  },
 ];
 
 const TodoTableView = () => {
@@ -47,7 +47,7 @@ const TodoTableView = () => {
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href={{}} onClick={onReset}>
+          <a class="navbar-brand" href={{}} onClick={onReset} style={{color: 'white'}}>
             TODO Manager
           </a>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -58,12 +58,13 @@ const TodoTableView = () => {
                   aria-current="page"
                   href={{}}
                   onClick={onReset}
+                  style={{color: 'white'}}
                 >
                   Übersicht
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={{}} onClick={onImpressumClick}>
+                <a class="nav-link" href={{}} onClick={onImpressumClick} style={{color: 'white'}}>
                   Impressum
                 </a>
               </li>
@@ -94,6 +95,7 @@ const TodoTableView = () => {
                       <td>{value.title}</td>
                       <td>{value.deadline}</td>
                       <td>{value.progress}</td>
+                      <td>{value.checkbox}</td>
                     </tr>
                   );
                 })}

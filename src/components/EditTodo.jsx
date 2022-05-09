@@ -1,5 +1,5 @@
 const EditTodo = () => {
-  return <h1>Todo</h1>;
+  return <h1>Edit ToDo</h1>;
 };
 
 export default EditTodo;

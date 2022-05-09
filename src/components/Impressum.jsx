@@ -1,4 +1,12 @@
 const Impressum = () => {
-  return <h1>Impressum</h1>;
+  return (
+    <div class="container">
+          <h1 style={{color: 'green'}}>
+            Impressum
+          </h1>
+          <p>Bilguun Gantulga</p>
+          <p>David Hörmann</p>
+    </div>
+  );
 };
 export default Impressum;
