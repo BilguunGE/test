@@ -7,7 +7,7 @@ const CreateTodo = (props) => {
     <form>
       <div className="mb-3">
         <label className="form-label">Titel</label>
-        <input type="email" className="form-control" />
+        <input type="text" className="form-control" />
         <div className="form-text">Weniger als 160 Zeichen</div>
       </div>
       <div className="mb-3">

@@ -4,11 +4,11 @@ import EditTodo from "./EditTodo";
 import Impressum from "./Impressum";
 import "./TodoTableView.css";
 
-const head = ["Index", "Titel", "Deadline", "Fortschritt", "Löschen"];
+const head = ["Index", "Titel", "Deadline", "Fortschritt"];
 const body = [
-  { title: "Einkaufen", deadline: "13.10.2022", progress: "100%", checkbox: <input class="form-check-input" id="flexChec2" type="checkbox"/> },
-  { title: "SkSys HA", deadline: "16.01.2025", progress: "50%", checkbox: <input class="form-check-input" id="flexChec2" type="checkbox"/>  },
-  { title: "Zähne putzen", deadline: "01.11.2028", progress: "27%", checkbox: <input class="form-check-input" id="flexChec2" type="checkbox"/>  },
+  { title: "Einkaufen", deadline: "13.10.2022", progress: "100%" },
+  { title: "SkSys HA", deadline: "16.01.2025", progress: "50%" },
+  { title: "Zähne putzen", deadline: "01.11.2028", progress: "27%" },
 ];
 
 const TodoTableView = () => {
@@ -47,7 +47,12 @@ const TodoTableView = () => {
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href={{}} onClick={onReset} style={{color: 'white'}}>
+          <a
+            class="navbar-brand"
+            href={{}}
+            onClick={onReset}
+            style={{ color: "white" }}
+          >
             TODO Manager
           </a>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -58,13 +63,18 @@ const TodoTableView = () => {
                   aria-current="page"
                   href={{}}
                   onClick={onReset}
-                  style={{color: 'white'}}
+                  style={{ color: "white" }}
                 >
                   Übersicht
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={{}} onClick={onImpressumClick} style={{color: 'white'}}>
+                <a
+                  class="nav-link"
+                  href={{}}
+                  onClick={onImpressumClick}
+                  style={{ color: "white" }}
+                >
                   Impressum
                 </a>
               </li>
@@ -90,12 +100,24 @@ const TodoTableView = () => {
               <tbody>
                 {body.map((value, index) => {
                   return (
-                    <tr onClick={onRowClick} key={index}>
+                    <tr key={index}>
                       <th scope="row">{++index}</th>
                       <td>{value.title}</td>
                       <td>{value.deadline}</td>
                       <td>{value.progress}</td>
-                      <td>{value.checkbox}</td>
+                      <td>
+                        <button
+                          className="btn btn-success btn-sm"
+                          onClick={()=>onRowClick(value)}
+                        >
+                          Edit
+                        </button>
+                      </td>
+                      <td>
+                        <button className="btn btn-danger btn-sm">
+                          Löschen
+                        </button>
+                      </td>
                     </tr>
                   );
                 })}
@@ -106,10 +128,8 @@ const TodoTableView = () => {
             </button>
           </>
         )}
-        {showEdit && <EditTodo />}
-        {showCreate && (
-          <CreateTodo setReset={onReset} />
-        )}
+        {showEdit && <EditTodo setReset={onReset} />}
+        {showCreate && <CreateTodo setReset={onReset} />}
         {showImpressum && <Impressum />}
       </div>
     </>
